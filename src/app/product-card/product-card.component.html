@@ -1,0 +1,10 @@
+<div class="cards">
+    <div class="card" *ngFor="let product of products">
+        <img [src]="product.img" alt="img" />
+        <h1> {{ product.name }}</h1>
+        <p> {{ product.desc }} </p>
+        <p> {{ product.availability }} </p>
+        <a [routerLink]="[ '/products' , product.id ]">View Details</a>
+        <button (click)="buyNow()">Buy Now</button>
+    </div>
+</div>

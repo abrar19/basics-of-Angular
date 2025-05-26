@@ -1,0 +1,29 @@
+<h2>Contact Us</h2>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="form-section">
+  <label>
+    Name:
+    <input name="name" ngModel required />
+  </label>
+  <div *ngIf="contactForm.submitted && contactForm.controls['name']?.invalid">
+    Name is required.
+  </div>
+
+  <label>
+    Email:
+    <input name="email" ngModel required email />
+  </label>
+  <div *ngIf="contactForm.submitted && contactForm.controls['email']?.invalid">
+    Valid email is required.
+  </div>
+
+  <label>
+    Message:
+    <textarea name="message" ngModel minlength="10"></textarea>
+  </label>
+  <div *ngIf="contactForm.controls['message']?.errors?.['minlength']">
+    Message must be at least 10 characters.
+  </div>
+
+  <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+</form>
