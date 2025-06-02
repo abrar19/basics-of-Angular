@@ -22,5 +22,8 @@ export const routes: Routes = [
     {path: 'register', loadComponent: () =>
         import('./register-form/register-form.component').then(m => m.RegisterFormComponent)
     },
+    {path: 'counter', loadComponent: () =>
+        import('./counter/counter.component').then(m => m.CounterComponent)
+    },
     {path: '**', redirectTo: ''},
 ];
